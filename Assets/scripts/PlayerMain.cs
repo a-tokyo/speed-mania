@@ -38,7 +38,7 @@ public class PlayerMain : MonoBehaviour {
 		}
 		if (collisionObject.gameObject.CompareTag ("Radar")) {
 			playSound("coin-drop");
-			GameObject.Destroy (collisionObject.gameObject);
+//			GameObject.Destroy (collisionObject.gameObject);
 			if (score - 50 >= 0) {
 				score -= 50;
 			} else {
@@ -48,6 +48,7 @@ public class PlayerMain : MonoBehaviour {
 		}
 		if (collisionObject.gameObject.CompareTag ("Obstacle")) {
 			playSound("crash");
+//			endGame ();
 			// @TODO
 		}
 		speed = speed * ((int)(speed / 50) + 1);
