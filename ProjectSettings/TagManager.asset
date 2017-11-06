@@ -9,6 +9,8 @@ TagManager:
   - Radar
   - Obstacle
   - Ground
+  - spawnAction
+  - Road
   layers:
   - Default
   - TransparentFX

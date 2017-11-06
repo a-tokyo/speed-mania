@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerMain : MonoBehaviour {
 	public GameObject player;
+	public GameObject road;
 	private int score = 0;
 	//	public Text scoreText;
 	private float speed = 2.0f;
@@ -69,6 +70,11 @@ public class PlayerMain : MonoBehaviour {
 				score = 0;
 			}
 			//			scoreText.text = "" + score;
+		}
+		if (collisionObject.CompareTag ("spawnAction")) {
+			playSound("coin-drop");
+			road.transform.Translate (new Vector3 (0 , 0, 8.0f));
+
 		}
 	}
 
