@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - Coin
+  - Radar
   layers:
   - Default
   - TransparentFX

@@ -209,6 +209,8 @@ GameObject:
   - component: {fileID: 352826327}
   - component: {fileID: 352826332}
   - component: {fileID: 352826331}
+  - component: {fileID: 352826334}
+  - component: {fileID: 352826333}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -310,6 +312,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &352826333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 352826326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf3a057755514ffa8304a4296c622ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+--- !u!65 &352826334
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 352826326}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &423506683
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,8 +432,8 @@ GameObject:
   - component: {fileID: 854642012}
   - component: {fileID: 854642011}
   m_Layer: 0
-  m_Name: Cylinder
-  m_TagString: Untagged
+  m_Name: Radar
+  m_TagString: Radar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -639,6 +665,7 @@ GameObject:
   - component: {fileID: 1574268573}
   - component: {fileID: 1574268572}
   - component: {fileID: 1574268571}
+  - component: {fileID: 1574268575}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
@@ -713,6 +740,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!135 &1574268575
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1574268570}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 1.0000002
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940699}
 --- !u!1 &1975594677
 GameObject:
   m_ObjectHideFlags: 0
