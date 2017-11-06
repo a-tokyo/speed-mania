@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class PlayerMain : MonoBehaviour {
 	public GameObject player;
-	private float speed = 1.0f;
+	private int score = 0;
 	//	public Text scoreText;
-	public int score = 0;
+	private float speed = 1.0f;
+	//	public Text speedText;
+
 	// Use this for initialization
 	void Start () {
 
@@ -21,6 +23,7 @@ public class PlayerMain : MonoBehaviour {
 			transform.Translate(Vector3.up * 1.2f);
 		}
 	}
+
 	void OnCollisionEnter(Collision c){
 		//		GetComponent< AudioSource> ().Play ();
 		if (c.gameObject.CompareTag ("Coin")) {
@@ -40,7 +43,6 @@ public class PlayerMain : MonoBehaviour {
 		if (c.gameObject.CompareTag ("Obstacle")) {
 			// @TODO
 		}
-		//		int newSpeedMult = speed / 50;
-		//		speed = speed * (newSpeedMult + 1);
+		speed = speed * ((int)(speed / 50) + 1);
 	}
 }
