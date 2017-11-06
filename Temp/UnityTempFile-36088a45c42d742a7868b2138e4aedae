@@ -155,6 +155,8 @@
 -define:ENABLE_NATIVE_ARRAY_CHECKS
 -define:UNITY_TEAM_LICENSE
 'Assets/Scripts/DeathMenu.cs'
+'Assets/Scripts/ExtraMenu.cs'
+'Assets/Scripts/MainMenu.cs'
 'Assets/Scripts/PlayerMain.cs'
 'Assets/Scripts/TileManager.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
