@@ -22,12 +22,8 @@ public class PlayerMain : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		float x = Input.GetAxis ("Horizontal");
-
-
 		print (x);
-
-
-
+		print (transform);
 		transform.Translate (new Vector3 (x,0, speed * Time.deltaTime));
 		if (Input.GetKeyDown ("space")){
 			playSound("jump");
