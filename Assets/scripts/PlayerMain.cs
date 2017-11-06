@@ -24,20 +24,20 @@ public class PlayerMain : MonoBehaviour {
 		float x = Input.GetAxis ("Horizontal");
 		transform.Translate (new Vector3 (x,0, speed * Time.deltaTime));
 		if (Input.GetKeyDown ("space")){
-			playSound("super-mario");
+			playSound("jump");
 			transform.Translate(Vector3.up * 1.2f);
 		}
 	}
 
 	void OnCollisionEnter(Collision collisionObject){
 		if (collisionObject.gameObject.CompareTag ("Coin")) {
-			playSound("super-mario");
+			playSound("coin-collect");
 			GameObject.Destroy (collisionObject.gameObject);
 			score += 10;
 			//			scoreText.text = "" + score;
 		}
 		if (collisionObject.gameObject.CompareTag ("Radar")) {
-			playSound("super-mario");
+			playSound("coin-drop");
 			GameObject.Destroy (collisionObject.gameObject);
 			if (score - 50 >= 0) {
 				score -= 50;
@@ -47,7 +47,7 @@ public class PlayerMain : MonoBehaviour {
 			//			scoreText.text = "" + score;
 		}
 		if (collisionObject.gameObject.CompareTag ("Obstacle")) {
-			playSound("super-mario");
+			playSound("crash");
 			// @TODO
 		}
 		speed = speed * ((int)(speed / 50) + 1);
