@@ -22,6 +22,12 @@ public class PlayerMain : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		float x = Input.GetAxis ("Horizontal");
+
+
+		print (x);
+
+
+
 		transform.Translate (new Vector3 (x,0, speed * Time.deltaTime));
 		if (Input.GetKeyDown ("space")){
 			playSound("jump");
@@ -36,9 +42,18 @@ public class PlayerMain : MonoBehaviour {
 			score += 10;
 			//			scoreText.text = "" + score;
 		}
-		if (collisionObject.gameObject.CompareTag ("Radar")) {
+		if (collisionObject.gameObject.CompareTag ("Obstacle")) {
+			playSound("crash");
+//			endGame ();
+			// @TODO
+		}
+		speed = speed * ((int)(speed / 50) + 1);
+	}
+
+	void OnTriggerEnter(Collider collisionObject){
+		if (collisionObject.CompareTag ("Radar")) {
 			playSound("coin-drop");
-//			GameObject.Destroy (collisionObject.gameObject);
+			//			GameObject.Destroy (collisionObject.gameObject);
 			if (score - 50 >= 0) {
 				score -= 50;
 			} else {
@@ -46,12 +61,6 @@ public class PlayerMain : MonoBehaviour {
 			}
 			//			scoreText.text = "" + score;
 		}
-		if (collisionObject.gameObject.CompareTag ("Obstacle")) {
-			playSound("crash");
-//			endGame ();
-			// @TODO
-		}
-		speed = speed * ((int)(speed / 50) + 1);
 	}
 
 
