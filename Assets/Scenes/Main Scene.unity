@@ -475,7 +475,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1279753143}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 281, y: 210, z: 0}
+  m_LocalPosition: {x: 475, y: 210, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1613226510}
@@ -719,12 +719,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0977d762755ce4c9387d9e49934e832e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilePrefabs:
-  - {fileID: 1404080598185944, guid: d6253bf9bdbb64d768012ad3cdad13f6, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   player: {fileID: 352826326}
+  tilePrefab: {fileID: 1404080598185944, guid: d6253bf9bdbb64d768012ad3cdad13f6, type: 2}
+  coinPrefab: {fileID: 1359639848958710, guid: cfdc31ef0b85b4569a05be89d402cd1e, type: 2}
+  obstaclePrefab: {fileID: 1196026655181782, guid: 496b3d25104ae43a69621e66d08c976a,
+    type: 2}
+  radarPrefab: {fileID: 1857759667836326, guid: f77fc894f29ce410ea69828820d6e94b,
+    type: 2}
+  activeTiles: []
+  activeCoins: []
+  activeRadars: []
+  activeObstacles: []
 --- !u!4 &1883428008
 Transform:
   m_ObjectHideFlags: 0
