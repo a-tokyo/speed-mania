@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class DeathMenu : MonoBehaviour {
 	public Text scoreText;
 
+	//	pause : Time.timeScale = 0.0f; 1.0f;
+
 	// Use this for initialization
 	void Start () {
 		gameObject.SetActive (false);
