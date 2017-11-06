@@ -7,7 +7,7 @@ public class PlayerMain : MonoBehaviour {
 	public GameObject player;
 	public GameObject road;
 	private int score = 0;
-	//	public Text scoreText;
+	public Text scoreText;
 	private float speed = 2.0f;
 	//	public Text speedText;
 	private float jumpSpeed = 1.2f;
@@ -20,6 +20,7 @@ public class PlayerMain : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		scoreText.text = "" + score;
 		audio = GetComponent< AudioSource> ();
 		playSound("super-mario");
 	}
@@ -51,7 +52,7 @@ public class PlayerMain : MonoBehaviour {
 			playSound("coin-collect");
 			GameObject.Destroy (collisionObject.gameObject);
 			score += 10;
-			//			scoreText.text = "" + score;
+			scoreText.text = "" + score;
 		}
 		if (collisionObject.gameObject.CompareTag ("Obstacle")) {
 			playSound("crash");
@@ -70,7 +71,7 @@ public class PlayerMain : MonoBehaviour {
 			} else {
 				score = 0;
 			}
-			//			scoreText.text = "" + score;
+			scoreText.text = "" + score;
 		}
 		if (collisionObject.CompareTag ("spawnAction")) {
 			road.transform.Translate (new Vector3 (0 , 0, 8.0f));
