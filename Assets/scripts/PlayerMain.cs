@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class collision : MonoBehaviour {
-
+public class PlayerMain : MonoBehaviour {
+	public GameObject player;
+	private float speed = 1.0f;
 	//	public Text scoreText;
 	public int score = 0;
-
 	// Use this for initialization
 	void Start () {
 
@@ -15,11 +15,14 @@ public class collision : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+		float x = Input.GetAxis ("Horizontal");
+		transform.Translate (new Vector3 (x,0, speed * Time.deltaTime));
+		if (Input.GetKeyDown ("space")){
+			transform.Translate(Vector3.up * 1.2f);
+		}
 	}
-
 	void OnCollisionEnter(Collision c){
-//		GetComponent< AudioSource> ().Play ();
+		//		GetComponent< AudioSource> ().Play ();
 		if (c.gameObject.CompareTag ("Coin")) {
 			GameObject.Destroy (c.gameObject);
 			score += 10;
@@ -37,5 +40,7 @@ public class collision : MonoBehaviour {
 		if (c.gameObject.CompareTag ("Obstacle")) {
 			// @TODO
 		}
+		//		int newSpeedMult = speed / 50;
+		//		speed = speed * (newSpeedMult + 1);
 	}
 }
