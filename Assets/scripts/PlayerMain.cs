@@ -57,15 +57,15 @@ public class PlayerMain : MonoBehaviour {
 	/**
 	 * Plays a sound from the resources folder if the mute is set to false
 	 **/
-	private void playSound(string resourcesPath, bool continious = false){
+	private void playSound(string musicPath, bool continious = false){
 		if (mute) {
 			return;
 		}
 		if (continious) {
-			audio.clip = (AudioClip)Resources.Load (resourcesPath);
+			audio.clip = (AudioClip)Resources.Load ("music/" + musicPath);
 			audio.Play ();
 		} else {
-			audio.PlayOneShot((AudioClip)Resources.Load (resourcesPath));
+			audio.PlayOneShot((AudioClip)Resources.Load ("music/" + musicPath));
 		}
 	}
 }
