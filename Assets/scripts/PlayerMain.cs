@@ -29,8 +29,13 @@ public class PlayerMain : MonoBehaviour {
 	public PauseMenu pauseMenu;
 
 
+	public Camera mainCamera;
+	public Camera fPerson;
+
+
 	// Use this for initialization
 	void Start () {
+		fPerson.enabled = false;
 		scoreText.text = "" + score;
 		audio = GetComponent< AudioSource> ();
 		playSound("super-mario");
@@ -115,5 +120,12 @@ public class PlayerMain : MonoBehaviour {
 
 	public void toggleCamera(){
 		// @TODO
+		if (mainCamera.isActiveAndEnabled) {
+			mainCamera.enabled = false;
+			fPerson.enabled = true;
+		} else {
+			mainCamera.enabled = true;
+			fPerson.enabled = false;
+		}
 	}
 }
