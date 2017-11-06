@@ -79,13 +79,6 @@ public class PlayerMain : MonoBehaviour {
 			}
 			scoreText.text = "" + score;
 		}
-		if (collisionObject.CompareTag ("spawnAction")) {
-			road.transform.Translate (new Vector3 (0 , 0, 8.0f));
-			GameObject go;
-			go = Instantiate (coinPrefab) as GameObject;
-			go.transform.position = new Vector3 (0 , 1, player.transform.position.z + 5);
-			// @TODO create a coin, an obstacle and a radar min distance is 5
-		}
 	}
 
 
