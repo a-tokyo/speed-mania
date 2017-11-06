@@ -57,6 +57,7 @@ public class PlayerMain : MonoBehaviour {
 			playSound("crash");
 			endGame ();
 		}
+		// adjust speed according to score
 		speed = speed * ((int)(speed / 50) + 1);
 	}
 
@@ -72,9 +73,8 @@ public class PlayerMain : MonoBehaviour {
 			//			scoreText.text = "" + score;
 		}
 		if (collisionObject.CompareTag ("spawnAction")) {
-			playSound("coin-drop");
 			road.transform.Translate (new Vector3 (0 , 0, 8.0f));
-
+			// @TODO create a coin, an obstacle and a radar min distance is 5
 		}
 	}
 
