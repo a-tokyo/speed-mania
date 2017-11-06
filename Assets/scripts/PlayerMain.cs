@@ -36,6 +36,12 @@ public class PlayerMain : MonoBehaviour {
 			playSound("jump");
 			transform.Translate(Vector3.up * 1.2f);
 		}
+		if (Input.GetKeyDown ("escape")){
+			togglePause ();
+		}
+		if (Input.GetKeyDown ("c")){
+			toggleCamera ();
+		}
 	}
 
 	void OnCollisionEnter(Collision collisionObject){
@@ -83,6 +89,14 @@ public class PlayerMain : MonoBehaviour {
 
 
 	public void endGame(){
+		// @TODO
+	}
+
+	public void togglePause(){
+		// @TODO
+	}
+
+	public void toggleCamera(){
 		// @TODO
 	}
 }
