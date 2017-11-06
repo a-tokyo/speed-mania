@@ -34,5 +34,8 @@ public class collision : MonoBehaviour {
 			}
 			//			scoreText.text = "" + score;
 		}
+		if (c.gameObject.CompareTag ("Obstacle")) {
+			// @TODO
+		}
 	}
 }
