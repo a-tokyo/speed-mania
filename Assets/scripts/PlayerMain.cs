@@ -62,7 +62,8 @@ public class PlayerMain : MonoBehaviour {
 			return;
 		}
 		if (continious) {
-			
+			audio.clip = (AudioClip)Resources.Load (resourcesPath);
+			audio.Play ();
 		} else {
 			audio.PlayOneShot((AudioClip)Resources.Load (resourcesPath));
 		}
