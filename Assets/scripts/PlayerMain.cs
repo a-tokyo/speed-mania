@@ -58,7 +58,7 @@ public class PlayerMain : MonoBehaviour {
 			playSound("coin-collect");
 			GameObject.Destroy (collisionObject.gameObject);
 			score += 10;
-			scoreText.text = "" + score;
+			scoreText.text = score + "";
 		}
 		if (collisionObject.gameObject.CompareTag ("Obstacle")) {
 			playSound("crash");
@@ -72,12 +72,12 @@ public class PlayerMain : MonoBehaviour {
 		if (collisionObject.CompareTag ("Radar")) {
 			playSound("coin-drop");
 			//			GameObject.Destroy (collisionObject.gameObject);
-			if (score - 50 >= 0) {
+			if (score - 50 > 0) {
 				score -= 50;
 			} else {
 				score = 0;
 			}
-			scoreText.text = "" + score;
+			scoreText.text = score + "";
 		}
 	}
 

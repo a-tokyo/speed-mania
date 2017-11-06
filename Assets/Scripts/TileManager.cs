@@ -45,6 +45,17 @@ public class TileManager : MonoBehaviour {
 	}
 
 	private void spawnElements(int prefabIndex = -1){
+		float coinNewZIncr = Random.Range(1, 10);
+		float obstacleNewZIncr = Random.Range(1, 10);
+		float radarNewZIncr = Random.Range(1, 10);
+		while (obstacleNewZIncr != coinNewZIncr) {
+			obstacleNewZIncr = Random.Range(1, 10);
+		}
+		while (radarNewZIncr != coinNewZIncr && radarNewZIncr != obstacleNewZIncr) {
+			obstacleNewZIncr = Random.Range(1, 10);
+		}
+
+
 		GameObject tile;
 		tile = Instantiate (tilePrefab) as GameObject;
 		tile.transform.position = Vector3.forward * spawnMainZ;
