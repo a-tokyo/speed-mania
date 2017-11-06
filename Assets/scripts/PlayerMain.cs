@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerMain : MonoBehaviour {
 	public GameObject player;
@@ -54,6 +55,7 @@ public class PlayerMain : MonoBehaviour {
 		if (Input.GetKeyDown ("space")){
 			playSound("jump");
 			transform.Translate(Vector3.up * jumpSpeed);
+			transform.Translate(Input.acceleration.x, 0, 0);
 		}
 		if (Input.GetKeyDown ("escape")){
 			togglePause ();

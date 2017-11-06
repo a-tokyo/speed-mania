@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e688c4dd1a641039e6f91f246bf7a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 352826326}
   pauseMenu: {fileID: 2011658559}
   mainCamera: {fileID: 2125215969}
   fPerson: {fileID: 537164819}
@@ -865,6 +866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e688c4dd1a641039e6f91f246bf7a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 352826326}
   pauseMenu: {fileID: 2011658559}
   mainCamera: {fileID: 2125215969}
   fPerson: {fileID: 537164819}
@@ -1941,6 +1943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e688c4dd1a641039e6f91f246bf7a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 352826326}
   pauseMenu: {fileID: 2011658559}
   mainCamera: {fileID: 2125215969}
   fPerson: {fileID: 537164819}
@@ -1984,7 +1987,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1479833518}
-        m_MethodName: toggleCam
+        m_MethodName: jump
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
