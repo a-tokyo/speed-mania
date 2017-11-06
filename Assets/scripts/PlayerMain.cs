@@ -24,6 +24,10 @@ public class PlayerMain : MonoBehaviour {
 	public GameObject radarPrefab;
 
 
+
+	public DeathMenu deathMenu;
+
+
 	// Use this for initialization
 	void Start () {
 		scoreText.text = "" + score;
@@ -100,6 +104,7 @@ public class PlayerMain : MonoBehaviour {
 
 	public void endGame(){
 		// @TODO
+		deathMenu.ToggleEndMenu(score);
 	}
 
 	public void togglePause(){
