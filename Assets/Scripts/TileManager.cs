@@ -20,9 +20,9 @@ public class TileManager : MonoBehaviour {
 	public List<GameObject> activeObstacles;
 
 	/** Config variables */
-	private float spawnMainZ = -24.0f;
+	private float spawnMainZ = 0.0f;
 	private float tileLength = 24.0f;
-	private float safeZone = 30.0f;
+	private float safeZone = 40.0f;
 	private int amnTileOnScreen = 3;
 
 	// Use this for initialization
@@ -32,7 +32,7 @@ public class TileManager : MonoBehaviour {
 		activeRadars = new List<GameObject>();
 		activeObstacles = new List<GameObject>();
 		for (int i = 0; i < amnTileOnScreen; i++){
-			spawnElements();
+			spawnElements((int)(i*tileLength) + 4, (int)(i*tileLength) + 23);
 		}
 	}
 	
@@ -44,14 +44,13 @@ public class TileManager : MonoBehaviour {
 		}
 	}
 
-	private void spawnElements(){
+	private void spawnElements(int startRange = 4, int endRange = 23){
 		GameObject tile;
 		tile = Instantiate (tilePrefab) as GameObject;
 		tile.transform.position = Vector3.forward * spawnMainZ;
 		activeTiles.Add (tile);
 
-		spawnGameRandomElements ();
-		spawnGameRandomElements (23, 33);
+		spawnGameRandomElements (startRange, endRange);
 
 		// increment spawnZ
 		spawnMainZ += tileLength;

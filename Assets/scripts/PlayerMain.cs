@@ -8,9 +8,9 @@ public class PlayerMain : MonoBehaviour {
 	public GameObject road;
 	private int score = 0;
 	public Text scoreText;
-	private float speed = 2.0f;
+	private float speed = 6.0f;
 	//	public Text speedText;
-	private float jumpSpeed = 1.2f;
+	private float jumpSpeed = 2.0f;
 	public bool mute = false;
 
 	private AudioSource audio = null;
@@ -57,7 +57,7 @@ public class PlayerMain : MonoBehaviour {
 		if (collisionObject.gameObject.CompareTag ("Coin")) {
 			playSound("coin-collect");
 			GameObject.Destroy (collisionObject.gameObject);
-			score += 10;
+			score += 5;
 			scoreText.text = score + "";
 		}
 		if (collisionObject.gameObject.CompareTag ("Obstacle")) {
@@ -65,15 +65,15 @@ public class PlayerMain : MonoBehaviour {
 			endGame ();
 		}
 		// adjust speed according to score
-		speed = speed * ((int)(speed / 50) + 1);
+		speed = speed * ((int)(speed / 25) + 1);
 	}
 
 	void OnTriggerEnter(Collider collisionObject){
 		if (collisionObject.CompareTag ("Radar")) {
 			playSound("coin-drop");
 			//			GameObject.Destroy (collisionObject.gameObject);
-			if (score - 50 > 0) {
-				score -= 50;
+			if (score - 25 > 0) {
+				score -= 25;
 			} else {
 				score = 0;
 			}
