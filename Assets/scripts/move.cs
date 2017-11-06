@@ -16,7 +16,7 @@ public class move : MonoBehaviour {
 		float x = Input.GetAxis ("Horizontal");
 		transform.Translate (new Vector3 (x,0, speed * Time.deltaTime));
 		if (Input.GetKeyDown ("space")){
-			transform.Translate(Vector3.up * 260 * Time.deltaTime, Space.World);
+			transform.Translate(Vector3.up * 1.2f);
 		}
 	}
 }
