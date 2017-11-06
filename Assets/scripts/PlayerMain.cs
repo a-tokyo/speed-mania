@@ -12,6 +12,9 @@ public class PlayerMain : MonoBehaviour {
 	public bool mute = false;
 
 	private AudioSource audio = null;
+	private float laneWidth = 1.4f;
+	private int laneCount = 3;
+	private float planeWidth = 4.2f;
 
 	// Use this for initialization
 	void Start () {
@@ -22,9 +25,13 @@ public class PlayerMain : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		float x = Input.GetAxis ("Horizontal");
-		print (x);
-		print (transform);
-		transform.Translate (new Vector3 (x,0, speed * Time.deltaTime));
+		float xTranslation = 0.0f;
+
+		if (transform.position.x + x > -planeWidth && transform.position.x + x < planeWidth) {
+			xTranslation = x;
+		}
+
+		transform.Translate (new Vector3 (xTranslation,0, speed * Time.deltaTime));
 		if (Input.GetKeyDown ("space")){
 			playSound("jump");
 			transform.Translate(Vector3.up * 1.2f);
@@ -40,8 +47,7 @@ public class PlayerMain : MonoBehaviour {
 		}
 		if (collisionObject.gameObject.CompareTag ("Obstacle")) {
 			playSound("crash");
-//			endGame ();
-			// @TODO
+			endGame ();
 		}
 		speed = speed * ((int)(speed / 50) + 1);
 	}
@@ -73,5 +79,10 @@ public class PlayerMain : MonoBehaviour {
 		} else {
 			audio.PlayOneShot((AudioClip)Resources.Load ("music/" + musicPath));
 		}
+	}
+
+
+	public void endGame(){
+		// @TODO
 	}
 }
