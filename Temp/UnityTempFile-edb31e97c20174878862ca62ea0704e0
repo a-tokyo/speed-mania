@@ -157,6 +157,7 @@
 'Assets/Scripts/DeathMenu.cs'
 'Assets/Scripts/ExtraMenu.cs'
 'Assets/Scripts/MainMenu.cs'
+'Assets/Scripts/PauseMenu.cs'
 'Assets/Scripts/PlayerMain.cs'
 'Assets/Scripts/TileManager.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'

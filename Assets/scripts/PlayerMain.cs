@@ -26,6 +26,7 @@ public class PlayerMain : MonoBehaviour {
 
 
 	public DeathMenu deathMenu;
+	public PauseMenu pauseMenu;
 
 
 	// Use this for initialization
@@ -109,6 +110,7 @@ public class PlayerMain : MonoBehaviour {
 
 	public void togglePause(){
 		// @TODO
+		pauseMenu.Toggle();
 	}
 
 	public void toggleCamera(){

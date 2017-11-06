@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\DeathMenu.cs" />
      <Compile Include="Assets\Scripts\ExtraMenu.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerMain.cs" />
      <Compile Include="Assets\Scripts\TileManager.cs" />
  <Reference Include="UnityEngine.UI">
