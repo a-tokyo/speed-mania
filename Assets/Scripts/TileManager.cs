@@ -20,10 +20,10 @@ public class TileManager : MonoBehaviour {
 	public List<GameObject> activeObstacles;
 
 	/** Config variables */
-	private float spawnMainZ = -12.0f;
-	private float tileLength = 12.0f;
-	private float safeZone = 50.0f;
-	private int amnTileOnScreen = 10;
+	private float spawnMainZ = -24.0f;
+	private float tileLength = 24.0f;
+	private float safeZone = 30.0f;
+	private int amnTileOnScreen = 3;
 
 	// Use this for initialization
 	void Start () {
@@ -44,40 +44,58 @@ public class TileManager : MonoBehaviour {
 		}
 	}
 
-	private void spawnElements(int prefabIndex = -1){
-		float coinNewZIncr = Random.Range(1, 10);
-		float obstacleNewZIncr = Random.Range(1, 10);
-		float radarNewZIncr = Random.Range(1, 10);
-		while (obstacleNewZIncr != coinNewZIncr) {
-			obstacleNewZIncr = Random.Range(1, 10);
-		}
-		while (radarNewZIncr != coinNewZIncr && radarNewZIncr != obstacleNewZIncr) {
-			obstacleNewZIncr = Random.Range(1, 10);
-		}
-
-
+	private void spawnElements(){
 		GameObject tile;
 		tile = Instantiate (tilePrefab) as GameObject;
 		tile.transform.position = Vector3.forward * spawnMainZ;
 		activeTiles.Add (tile);
 
+		spawnGameRandomElements ();
+		spawnGameRandomElements (23, 33);
+
+		// increment spawnZ
+		spawnMainZ += tileLength;
+	}
+
+
+	private void spawnGameRandomElements(int startRange = 4, int endRange = 23) {
+		float coinNewZIncr = Random.Range(startRange, endRange);
+		float obstacleNewZIncr = Random.Range(startRange, endRange);
+		float radarNewZIncr = Random.Range(startRange, endRange);
+		while (obstacleNewZIncr == coinNewZIncr) {
+			obstacleNewZIncr = Random.Range(startRange, endRange);
+		}
+		while (radarNewZIncr == coinNewZIncr && radarNewZIncr != obstacleNewZIncr) {
+			obstacleNewZIncr = Random.Range(startRange, endRange);
+		}
+
 		GameObject coin;
 		coin = Instantiate (coinPrefab) as GameObject;
-		coin.transform.position = new Vector3 (0 , 1, player.transform.position.z + 5);
+		coin.transform.position = new Vector3 (randomLaneX() , 1, player.transform.position.z + coinNewZIncr);
 		activeCoins.Add (coin);
 
 		GameObject obstacle;
 		obstacle = Instantiate (obstaclePrefab) as GameObject;
-		obstacle.transform.position = new Vector3 (-3.5f , 1, player.transform.position.z + 8);
+		obstacle.transform.position = new Vector3 (randomLaneX() , 1, player.transform.position.z + obstacleNewZIncr);
 		activeObstacles.Add (obstacle);
 
 		GameObject radar;
 		radar = Instantiate (radarPrefab) as GameObject;
-		radar.transform.position = new Vector3 (0 , 0.02f, player.transform.position.z + 10);
+		radar.transform.position = new Vector3 (0 , 0.02f, player.transform.position.z + radarNewZIncr);
 		activeRadars.Add (radar);
+	}
 
-		// increment spawnZ
-		spawnMainZ += tileLength;
+	private float randomLaneX(){
+		int randomNo = (int)Random.Range (0, 3);
+		switch (randomNo) {
+		case 0:
+			return -3.5f;
+		case 1:
+			return 0.0f;
+		case 2:
+			return 3.5f;
+		}
+		return 0.0f;
 	}
 
 	private void deleteElements() {

@@ -720,7 +720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 352826326}
-  tilePrefab: {fileID: 1404080598185944, guid: d6253bf9bdbb64d768012ad3cdad13f6, type: 2}
+  tilePrefab: {fileID: 1250425378320126, guid: d6253bf9bdbb64d768012ad3cdad13f6, type: 2}
   coinPrefab: {fileID: 1359639848958710, guid: cfdc31ef0b85b4569a05be89d402cd1e, type: 2}
   obstaclePrefab: {fileID: 1196026655181782, guid: 496b3d25104ae43a69621e66d08c976a,
     type: 2}
