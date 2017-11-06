@@ -9,12 +9,13 @@ public class PlayerMain : MonoBehaviour {
 	//	public Text scoreText;
 	private float speed = 2.0f;
 	//	public Text speedText;
+	private float jumpSpeed = 1.2f;
 	public bool mute = false;
 
 	private AudioSource audio = null;
-	private float laneWidth = 1.4f;
+	private float laneWidth = 1.8f;
 	private int laneCount = 3;
-	private float planeWidth = 4.2f;
+	private float planeWidth = 5.4f;
 
 	// Use this for initialization
 	void Start () {
@@ -34,7 +35,7 @@ public class PlayerMain : MonoBehaviour {
 		transform.Translate (new Vector3 (xTranslation,0, speed * Time.deltaTime));
 		if (Input.GetKeyDown ("space")){
 			playSound("jump");
-			transform.Translate(Vector3.up * 1.2f);
+			transform.Translate(Vector3.up * jumpSpeed);
 		}
 		if (Input.GetKeyDown ("escape")){
 			togglePause ();
