@@ -38,4 +38,13 @@ public class ExtraBtn : MonoBehaviour {
 			fPerson.enabled = false;
 		}
 	}
+
+
+	public void toggleMute(){
+		if (player.GetComponent<AudioSource> ().volume == 0) {
+			player.GetComponent<AudioSource> ().volume = 1;
+		} else {
+			player.GetComponent<AudioSource> ().volume = 0;
+		}
+	}
 }
