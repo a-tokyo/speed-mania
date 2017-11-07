@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		gameObject.SetActive (false);
+		Time.timeScale = 1.0f;
 	}
 
 	// Update is called once per frame

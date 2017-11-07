@@ -40,22 +40,24 @@ public class PlayerMain : MonoBehaviour {
 		scoreText.text = "" + score;
 		audio = GetComponent< AudioSource> ();
 		playSound("super-mario");
+		Time.timeScale = 1.0f;
 	}
 
 	// Update is called once per frame
 	void Update () {
 		float x = Input.GetAxis ("Horizontal");
+		#if UNITY_ANDROID
+		x = Input.acceleration.x;
+		#endif
 		float xTranslation = 0.0f;
 
 		if (transform.position.x + x > -planeWidth && transform.position.x + x < planeWidth) {
 			xTranslation = x;
 		}
-
 		transform.Translate (new Vector3 (xTranslation,0, speed * Time.deltaTime));
 		if (Input.GetKeyDown ("space")){
 			playSound("jump");
 			transform.Translate(Vector3.up * jumpSpeed);
-			transform.Translate(Input.acceleration.x, 0, 0);
 		}
 		if (Input.GetKeyDown ("escape")){
 			togglePause ();
