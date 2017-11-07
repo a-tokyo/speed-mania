@@ -46,15 +46,15 @@ public class PlayerMain : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		float x = Input.GetAxis ("Horizontal");
-		#if UNITY_ANDROID
-		x = Input.acceleration.x;
-		#endif
 		float xTranslation = 0.0f;
 
 		if (transform.position.x + x > -planeWidth && transform.position.x + x < planeWidth) {
 			xTranslation = x;
+			transform.Translate (new Vector3 (xTranslation,0, speed * Time.deltaTime));
+			#if UNITY_ANDROID
+			transform.Translate (new Vector3 (Input.acceleration.x,0, speed * Time.deltaTime));
+			#endif
 		}
-		transform.Translate (new Vector3 (xTranslation,0, speed * Time.deltaTime));
 		if (Input.GetKeyDown ("space")){
 			playSound("jump");
 			transform.Translate(Vector3.up * jumpSpeed);
